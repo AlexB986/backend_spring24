@@ -1,13 +1,14 @@
 package org.example.backend_spring.model;
 
-import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "roles")
-public class Role implements GrantedAuthority {
+//public class Role implements GrantedAuthority {
+public class Role  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,7 +37,7 @@ public class Role implements GrantedAuthority {
         this.role = role;
     }
 
-    @Override
+//    @Override
     public String getAuthority() {
         return role;
     }
