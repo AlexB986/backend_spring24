@@ -21,30 +21,30 @@ public class UserController {
 
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public void updateUser(@RequestBody User user) {
         userService.updateUser(user);
 
     }
 
     @GetMapping("/read")
-    public void findAllUsers() {
+    public List<User> findAllUsers() {
         List<User> userList = userService.findAllUsers();
+        return userList;
     }
 
-    @GetMapping("/read/id")
-    public void findUserById(@PathVariable Long id) {
-        userService.findUserById(id);
-
+    @GetMapping("/read/{id}")
+    public User findUserById(@PathVariable Long id) {
+        return userService.findUserById(id);
     }
 
-    @DeleteMapping("/delete/id")
-    public void deleteUserById(@PathVariable Long id) {
+    @DeleteMapping("/delete/{id}")
+    public void deleteUserById(@PathVariable  Long id) {
         userService.deleteUser(id);
     }
 
     @GetMapping("/ver/{username}")
-    public User  findByUsername(@PathVariable("username") String username){
+    public User findByUsername(@PathVariable("username") String username) {
         return userService.findByUsername(username);
     }
 }
