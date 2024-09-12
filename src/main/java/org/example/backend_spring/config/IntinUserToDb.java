@@ -44,16 +44,10 @@ public class IntinUserToDb {
         user.addUserToRole(userRole);
 
 
-        User guest = new User();
-        guest.setUsername("guest");
-        guest.setName("g");
-        guest.setPassword("guest");
-        guest.setAge(954);
-        guest.addUserToRole(userRole);
 
         userRepository.save(admin);
         userRepository.save(user);
-        userRepository.save(guest);
+
 
     }
 }
