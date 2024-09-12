@@ -16,12 +16,12 @@ public class UserController {
 
 
     @PostMapping("/add")
-    public void addUser(@ModelAttribute User user) {
+    public void addUser(@RequestBody User user) {
         userService.addUser(user);
 
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public void updateUser(@RequestBody User user) {
         userService.updateUser(user);
 
