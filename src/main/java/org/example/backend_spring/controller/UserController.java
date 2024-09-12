@@ -3,7 +3,6 @@ package org.example.backend_spring.controller;
 import org.example.backend_spring.model.User;
 import org.example.backend_spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

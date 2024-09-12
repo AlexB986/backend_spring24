@@ -1,32 +1,31 @@
 package org.example.backend_spring.model;
 
-//import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "roles")
-//public class Role implements GrantedAuthority {
 public class Role  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long id;
-    public String role;
+    private Long id;
+    private String role;
+
+    @ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<User> users;
 
     public Role() {
-    }
-
-    public Role(String role) {
-        this.role = role;
     }
 
     public Long getId() {
         return id;
     }
-    public void setId(Long id){
-        this.id= id;
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getRole() {
@@ -35,11 +34,6 @@ public class Role  {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-//    @Override
-    public String getAuthority() {
-        return role;
     }
 
     @Override
